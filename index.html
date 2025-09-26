@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFoodShare</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+
+  <!-- Navbar -->
+  <nav class="bg-emerald-700 text-white shadow-md fixed w-full z-10 top-0">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold tracking-wide">🌱 CampusFoodShare</h1>
+      <ul class="flex space-x-6 text-lg items-center">
+        <li><a href="#about" class="hover:text-green-200 transition">About</a></li>
+        <li><a href="#features" class="hover:text-green-200 transition">Features</a></li>
+        <li><a href="./backend/analytics.php" class="hover:text-green-200 transition">Analytics</a></li>
+
+        <!-- Dropdown -->
+        <li class="relative">
+          <button id="loginDropdownBtn"
+            class="bg-white text-green-700 px-4 py-2 rounded-lg hover:bg-green-100 shadow-md flex items-center space-x-2">
+            <span>Login</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <ul id="loginDropdown" class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg hidden">
+            <li>
+              <a href="admin.html" class="block px-4 py-2 text-green-700 hover:bg-green-100 rounded-t-lg">Login as
+                Admin</a>
+            </li>
+            <li>
+              <a href="login.html" class="block px-4 py-2 text-green-700 hover:bg-green-100 rounded-b-lg">Login as
+                User</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    // Dropdown toggle
+    const dropdownBtn = document.getElementById('loginDropdownBtn');
+    const dropdownMenu = document.getElementById('loginDropdown');
+
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+
+  <!-- Hero Section -->
+  <section
+    class="bg-gradient-to-r from-emerald-500 to-emerald-400 text-white text-center py-32 pt-32 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full bg-green-900 opacity-10"></div>
+    <div class="relative">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-md">
+        Surplus Food, Shared with Care
+      </h2>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-90">
+        Connecting hostels, canteens, and event organizers with students and NGOs
+        to reduce food waste and build a sustainable future.
+      </p>
+      <a href="login.html"
+        class="bg-white text-green-700 px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transform transition">
+        Get Started
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 container mx-auto px-6">
+    <h3 class="text-4xl font-bold text-center text-green-700 mb-14">Why Choose CampusFoodShare?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+      <div class="p-8 rounded-2xl shadow-md border hover:shadow-2xl transition transform hover:-translate-y-2">
+        <div
+          class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-100 text-green-600 text-3xl rounded-full">
+          <img src="./images/food.png" alt="" class="w-fit h-fit">
+        </div>
+        <h4 class="text-xl font-semibold mb-3">Reduce Food Waste</h4>
+        <p class="text-gray-600">Excess food from canteens and events is shared instead of wasted.</p>
+      </div>
+
+      <div class="p-8 rounded-2xl shadow-md border hover:shadow-2xl transition transform hover:-translate-y-2">
+        <div
+          class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-100 text-green-600 text-3xl rounded-full">
+          <img src="./images/noti.png" alt="background" class="w-fit h-fit">
+        </div>
+        <h4 class="text-xl font-semibold mb-3">Real-Time Alerts</h4>
+        <p class="text-gray-600">Students and NGOs receive instant notifications when food is available.</p>
+      </div>
+
+      <div class="p-8 rounded-2xl shadow-md border hover:shadow-2xl transition transform hover:-translate-y-2">
+        <div
+          class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-100 text-green-600 text-3xl rounded-full">
+          <img src="./images/sustainable.png" alt="" class="w-fit h-fit">
+        </div>
+        <h4 class="text-xl font-semibold mb-3">Sustainable Campus</h4>
+        <p class="text-gray-600">Promotes eco-friendly practices and builds a caring community.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-green-50 py-20">
+    <div class="container mx-auto flex flex-col md:flex-row items-center px-6 gap-10">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/63bd810bc84e6c4c5f396e08/1677875903751-53ONMUWZWIENN9N7DLF4/%237+Food+Waste-+Heal+the+planet.jpg"
+        alt="Food Sharing" class="rounded-2xl shadow-lg w-full md:w-1/2 object-cover">
+      <div class="md:w-1/2">
+        <h3 class="text-3xl font-bold text-green-700 mb-6">About Us</h3>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          CampusFoodShare ensures no food goes to waste in hostels, canteens, or campus events.
+          By redistributing surplus meals to students and NGOs, we foster a <span
+            class="font-semibold text-green-700">sustainable</span> and compassionate environment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-[#F0FDF4]container mx-auto px-6 text-center">
+    <div class="bg-[#F0FDF4] rounded-2xl shadow-lg p-10 max-w-2xl mx-auto">
+      <h3 class="text-3xl font-bold text-green-700 mb-4">Get In Touch</h3>
+      <p class="text-gray-600 mb-6">Have questions or want to collaborate? We’d love to hear from you.</p>
+      <a href="mailto:contact@campusfoodshare.com"
+        class="bg-green-600 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md hover:bg-green-700 hover:scale-105 transition">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white py-6 mt-12 text-center">
+    <!-- <div class="flex justify-center space-x-6 mb-3">
+      <a href="#" class="hover:text-green-200">🐦</a>
+      <a href="#" class="hover:text-green-200">📘</a>
+      <a href="#" class="hover:text-green-200">📸</a>
+    </div> -->
+    <p>&copy; 2025 CampusFoodShare. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>

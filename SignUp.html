@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+    <h2 class="text-3xl font-extrabold text-center text-green-700 mb-6">Create Account</h2>
+
+    <form id="signupForm" action="backend/sign_up.php" method="POST" class="space-y-5">
+      
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" name="user" id="username" placeholder="Enter your username"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none" required>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="mail" id="email" placeholder="Enter your email"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none" required>
+        <p id="emailMessage" class="mt-2 text-sm font-semibold"></p>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" name="passwd" id="password" placeholder="Enter your password"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none" required>
+        <p id="strengthMessage" class="mt-2 text-sm font-semibold"></p>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" name="confirm" id="confirm-password" placeholder="Confirm your password"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none" required>
+        <p id="matchMessage" class="mt-2 text-sm font-semibold"></p>
+      </div>
+
+      <!-- Role Selection -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Sign Up As</label>
+        <div class="flex items-center space-x-6">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="role1" value="provider" class="role-radio text-green-600 focus:ring-green-500" required>
+            <span class="text-gray-700">Food Provider</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="role1" value="recipient" class="role-radio text-green-600 focus:ring-green-500">
+            <span class="text-gray-700">Recipient</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Sub-role Selection -->
+      <div id="subRoleContainer" class="hidden">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Select Category</label>
+        <div id="subRoleOptions" class="flex flex-wrap gap-4"></div>
+      </div>
+
+      <!-- Button -->
+      <button type="submit"
+        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 rounded-lg shadow-md transition duration-200">
+        SignUp
+      </button>
+    </form>
+  </div>
+
+  <script>
+  const emailInput = document.getElementById("email");
+const emailMessage = document.getElementById("emailMessage");
+
+emailInput.addEventListener("input", () => {
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; // simple regex
+
+  // Clear message for empty or valid email
+  if (emailInput.value === "" || emailPattern.test(emailInput.value)) {
+    emailMessage.textContent = "";
+  } else {
+    // Show message only for invalid email
+    emailMessage.textContent = "Invalid email ❌";
+    emailMessage.className = "mt-2 text-sm font-semibold text-red-600";
+  }
+});
+    // ===== Password Strength Checker =====
+    const passwordInput = document.getElementById("password");
+    const strengthMessage = document.getElementById("strengthMessage");
+
+    passwordInput.addEventListener("input", () => {
+      const val = passwordInput.value;
+      let strength = 0;
+
+      if (val.length >= 6) strength++;
+      if (/[A-Z]/.test(val)) strength++;
+      if (/[0-9]/.test(val)) strength++;
+      if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+      if (strength === 0) {
+        strengthMessage.textContent = "";
+      } else if (strength <= 1) {
+        strengthMessage.textContent = "Weak password ❌";
+        strengthMessage.className = "mt-2 text-sm font-semibold text-red-600";
+      } else if (strength === 2) {
+        strengthMessage.textContent = "Medium password ⚠️";
+        strengthMessage.className = "mt-2 text-sm font-semibold text-yellow-600";
+      } else if (strength >= 3) {
+        strengthMessage.textContent = "Strong password ✅";
+        strengthMessage.className = "mt-2 text-sm font-semibold text-green-600";
+      }
+    });
+
+    // ===== Confirm Password Match Checker =====
+    const confirmInput = document.getElementById("confirm-password");
+    const matchMessage = document.getElementById("matchMessage");
+
+    function checkPasswordMatch() {
+      if (confirmInput.value === "") {
+        matchMessage.textContent = "";
+        return;
+      }
+      if (passwordInput.value === confirmInput.value) {
+        matchMessage.textContent = "Passwords match ✅";
+        matchMessage.className = "mt-2 text-sm font-semibold text-green-600";
+      } else {
+        matchMessage.textContent = "Passwords do not match ❌";
+        matchMessage.className = "mt-2 text-sm font-semibold text-red-600";
+      }
+    }
+
+    confirmInput.addEventListener("input", checkPasswordMatch);
+    passwordInput.addEventListener("input", checkPasswordMatch);
+
+    // ===== Prevent Submit if Invalid =====
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailPattern.test(emailInput.value)) {
+        e.preventDefault();
+        alert("Please enter a valid email!");
+        return;
+      }
+      if (passwordInput.value !== confirmInput.value) {
+        e.preventDefault();
+        alert("Passwords do not match!");
+      }
+    });
+
+    // ===== Role + Subrole Selection =====
+    const subRoleContainer = document.getElementById("subRoleContainer");
+    const subRoleOptions = document.getElementById("subRoleOptions");
+
+    document.querySelectorAll(".role-radio").forEach(radio => {
+      radio.addEventListener("change", () => {
+        subRoleOptions.innerHTML = ""; 
+        subRoleContainer.classList.remove("hidden");
+
+        if (radio.value === "provider") {
+          subRoleOptions.innerHTML = `
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="subrole" value="canteen" required>
+              <span>Canteen</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="subrole" value="hostel">
+              <span>Hostel</span>
+            </label>
+          `;
+        } else if (radio.value === "recipient") {
+          subRoleOptions.innerHTML = `
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="subrole" value="students" required>
+              <span>Students</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="subrole" value="ngo">
+              <span>NGO</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="subrole" value="staff">
+              <span>Staff</span>
+            </label>
+          `;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

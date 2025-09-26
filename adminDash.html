@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusFoodShare • Admin Hub Central</title>
+  <meta name="description" content="Green-themed admin dashboard landing for CampusFoodShare built with Tailwind CSS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior:smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Top Bar / Nav -->
+  <header class="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/90 border-b border-slate-200/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-14 items-center justify-between">
+        <a href="#" class="flex items-center gap-2 font-extrabold tracking-tight text-slate-900">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white">
+            <!-- Leaf/Shield Hybrid Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2.25c.41 0 .82.09 1.2.28l5.37 2.52c.48.23.78.71.78 1.24V12c0 4.97-3.41 7.9-6.01 8.99-.24.1-.51.1-.75 0C9.99 19.9 6.58 16.97 6.58 12V6.29c0-.53.3-1.01.78-1.24l5.37-2.52c.38-.19.79-.28 1.2-.28z"/></svg>
+          </span>
+          <span class="text-xl sm:text-2xl">FoodShare </span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="#features" class="hover:text-emerald-700">Features</a>
+          <a href="#quicklinks" class="hover:text-emerald-700">Quick Links</a> 
+          <a href="#faq" class="hover:text-emerald-700">FAQ</a>
+        </nav>
+        <a href="./index.html" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-9A2.25 2.25 0 002.25 5.25v13.5A2.25 2.25 0 004.5 21h9a2.25 2.25 0 002.25-2.25V15M18 12l3-3m0 0l-3-3m3 3H9"/></svg>
+          <span>Exit Dashboard</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="access" class="relative isolate overflow-hidden bg-emerald-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path fill-rule="evenodd" d="M12 1.5l8.485 4.242v5.5c0 5.246-3.72 10.098-8.485 11.258C7.72 21.34 4 16.488 4 11.242v-5.5L12 1.5zm0 5.25a3.75 3.75 0 00-3.75 3.75c0 2.071 1.679 5.026 3.75 5.026S15.75 12.571 15.75 10.5A3.75 3.75 0 0012 6.75z" clip-rule="evenodd"/></svg>
+        </div>
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Admin Hub Central</h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-700">Comprehensive admin dashboard for managing users, providers, and system operations with powerful tools and analytics — now in the CampusFoodShare green theme.</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="#login" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 1.5l8.485 4.242v5.5c0 5.246-3.72 10.098-8.485 11.258C7.72 21.34 4 16.488 4 11.242v-5.5L12 1.5zm0 5.25a3.75 3.75 0 00-3.75 3.75c0 2.071 1.679 5.026 3.75 5.026S15.75 12.571 15.75 10.5A3.75 3.75 0 0012 6.75z"/></svg>
+            See Transactions
+          </a>
+          <a href="#features" class="inline-flex items-center gap-2 rounded-xl border border-emerald-200 bg-white px-6 py-3 text-base font-semibold text-emerald-700 hover:border-emerald-300 hover:bg-emerald-50">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25zm.75 4.5a.75.75 0 00-1.5 0v5.25c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5H12.75V6.75z"/></svg>
+            Explore Features
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white"></div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Powerful Admin Features</h2>
+        <p class="mt-3 text-slate-600">Everything you need to manage your platform effectively.</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Card: User Management -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><path fill-rule="evenodd" d="M2.25 20.25a8.25 8.25 0 0119.5 0v.75H2.25v-.75z" clip-rule="evenodd"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">User Management</h3>
+          <p class="mt-2 text-sm text-slate-600">Roles, permissions, invitations, and activity tracking with fine-grained control.</p>
+          <a href="./backend/users.php" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline">Manage users <span aria-hidden>→</span></a>
+        </div>
+
+        <!-- Card: Provider Control -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 01.75.75v9.5a.75.75 0 01-.75.75H3.75a.75.75 0 01-.75-.75v-9.5z"/><path d="M7.5 18.75h9a.75.75 0 010 1.5h-9a.75.75 0 010-1.5z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Provider Control</h3>
+          <p class="mt-2 text-sm text-slate-600">Approve canteens and NGOs, review applications, and monitor compliance.</p>
+          <a href="./backend/providers.php" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline">Review providers <span aria-hidden>→</span></a>
+        </div>
+
+        <!-- Card: Calendar System -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M6.75 3A.75.75 0 017.5 3.75V6h9V3.75a.75.75 0 011.5 0V6h.75A2.25 2.25 0 0121 8.25v9A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25v-9A2.25 2.25 0 015.25 6H6V3.75A.75.75 0 016.75 3zM5.25 9A.75.75 0 004.5 9.75v7.5c0 .414.336.75.75.75h13.5a.75.75 0 00.75-.75v-7.5A.75.75 0 0018.75 9H5.25z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Event Management</h3>
+          <p class="mt-2 text-sm text-slate-600">Schedule pickups, events, and volunteer shifts. Sync with external calendars.</p>
+          <a href="./calendar.html" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline">View calendar <span aria-hidden>→</span></a>
+        </div>
+
+        <!-- Card: Analytics Dashboard -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M3 5.25A.75.75 0 013.75 4.5h16.5a.75.75 0 01.75.75V18a.75.75 0 01-.75.75H3.75A.75.75 0 013 18V5.25zm3.75 9.75a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5zm4.5-3a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0v-4.5zm4.5-3a.75.75 0 00-1.5 0v7.5a.75.75 0 001.5 0V9z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Analytics Dashboard</h3>
+          <p class="mt-2 text-sm text-slate-600">Real‑time metrics on saved meals, notifications, and sustainability impact.</p>
+          <a href="./backend/analytics.php" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline">Open analytics <span aria-hidden>→</span></a>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Frequently Asked Questions</h2>
+        <p class="mt-3 text-slate-600">Quick answers about access and usage.</p>
+      </div>
+
+      <div class="mt-10 space-y-4">
+        <details class="group rounded-2xl border border-slate-200 bg-white p-6 open:border-emerald-300 open:bg-emerald-50/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left text-base font-semibold text-slate-900">
+            Who can access the admin dashboard?
+            <span class="ml-4 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 15l-5-5h10l-5 5z"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Only verified campus admins and approved organization leads. Contact support to request access.</p>
+        </details>
+
+        <details class="group rounded-2xl border border-slate-200 bg-white p-6 open:border-emerald-300 open:bg-emerald-50/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left text-base font-semibold text-slate-900">
+            Is there two-factor authentication (2FA)?
+            <span class="ml-4 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 15l-5-5h10l-5 5z"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Yes. Enforce 2FA for all admins from <em>Security Center → Policies</em>.</p>
+        </details>
+
+        <details class="group rounded-2xl border border-slate-200 bg-white p-6 open:border-emerald-300 open:bg-emerald-50/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left text-base font-semibold text-slate-900">
+            Can I export analytics reports?
+            <span class="ml-4 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 15l-5-5h10l-5 5z"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Absolutely. Go to <em>Analytics → Exports</em> to download CSV, XLSX, or PDF summaries.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200/70 bg-white py-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+      <p class="text-sm text-slate-500">© <span id="year"></span> CampusFoodShare. All rights reserved.</p>
+      <div class="flex items-center gap-6 text-sm">
+        <a class="hover:text-emerald-700" href="#">Privacy</a>
+        <a class="hover:text-emerald-700" href="#">Terms</a>
+        <a class="hover:text-emerald-700" href="#">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
